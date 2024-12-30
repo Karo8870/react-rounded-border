@@ -3,6 +3,10 @@ import useRoundedBorder from './use-rounded-border.tsx';
 
 export default function ({
   padding = 0,
+  paddingTop,
+  paddingLeft,
+  paddingBottom,
+  paddingRight,
   minBorderRadius = 0,
   borderRadius = 0,
   ...props
@@ -10,11 +14,19 @@ export default function ({
   padding?: number;
   minBorderRadius?: number;
   borderRadius?: number;
+  paddingTop?: number;
+  paddingLeft?: number;
+  paddingBottom?: number;
+  paddingRight?: number;
 }) {
   const { containerRef, svgRef } = useRoundedBorder({
     padding,
     minBorderRadius,
-    borderRadius
+    borderRadius,
+    paddingBottom,
+    paddingRight,
+    paddingLeft,
+    paddingTop
   });
 
   return (
