@@ -8,10 +8,11 @@ export default function () {
     <main className='w-screen h-screen bg-black dark flex flex-col'>
       <RoundedBorder
         className='flex flex-col items-end p-20'
+        paddingTop={4}
         paddingBottom={8}
         paddingLeft={12}
         paddingRight={12}
-        borderRadius={16}
+        borderRadius={10}
       >
         <RoundedTextBorder className='font-semibold text-black text-3xl w-[450px] text-right'>
           O viziune modernă asupra schițelor lui Caragiale

@@ -96,23 +96,27 @@ function orientation(A: Point, B: Point, C: Point) {
   return (B[0] - A[0]) * (C[1] - A[1]) - (B[1] - A[1]) * (C[0] - A[0]) > 0;
 }
 
+interface UseRoundedBorderProps {
+  minBorderRadius: number;
+  borderRadius: number;
+  paddingTop: number;
+  paddingLeft: number;
+  paddingBottom: number;
+  paddingRight: number;
+  fill: string;
+  stroke: string;
+}
+
 export default function ({
-  padding,
   minBorderRadius,
   borderRadius,
   paddingLeft,
   paddingTop,
   paddingRight,
-  paddingBottom
-}: {
-  padding: number;
-  minBorderRadius: number;
-  borderRadius: number;
-  paddingTop?: number;
-  paddingLeft?: number;
-  paddingBottom?: number;
-  paddingRight?: number;
-}) {
+  paddingBottom,
+  fill,
+  stroke
+}: UseRoundedBorderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -124,10 +128,10 @@ export default function ({
 
     const polygons = getPolygons(
       nodes,
-      paddingLeft ?? padding,
-      paddingTop ?? padding,
-      paddingRight ?? padding,
-      paddingBottom ?? padding
+      paddingLeft,
+      paddingTop,
+      paddingRight,
+      paddingBottom
     );
 
     const result = getPoints(polygons);
@@ -195,7 +199,7 @@ export default function ({
         path += `A${radius} ${radius} 0 0 ${+orientation(prev, cur, next)} ${endX} ${endY}`;
       }
 
-      content += `<path d="M ${endX} ${endY} ${path}" stroke="none" fill="white" />`;
+      content += `<path d="M ${endX} ${endY} ${path}" stroke="${stroke}" fill="${fill}" />`;
     }
 
     svg.innerHTML += content;
