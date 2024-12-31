@@ -11,6 +11,7 @@ export interface RoundedBorderProps {
   paddingRight?: number;
   fill?: string;
   stroke?: string;
+  backgroundProps?: HTMLProps<SVGSVGElement>;
 }
 
 export default function ({
@@ -23,6 +24,7 @@ export default function ({
   borderRadius = 0,
   fill = 'white',
   stroke = 'none',
+  backgroundProps = {},
   ...props
 }: HTMLProps<HTMLDivElement> & RoundedBorderProps) {
   const { containerRef, svgRef } = useRoundedBorder({
@@ -40,11 +42,24 @@ export default function ({
     <div
       ref={containerRef}
       {...props}
-      className={`relative test z-50 ${props.className}`}
+      style={{
+        position: 'relative',
+        zIndex: 10,
+        ...props.style
+      }}
     >
       <svg
         ref={svgRef}
-        className='absolute top-0 w-full h-full left-0 z-[-1]'
+        {...backgroundProps}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+          ...backgroundProps?.style
+        }}
       />
       {props.children}
     </div>
