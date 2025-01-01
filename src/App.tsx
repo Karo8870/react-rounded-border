@@ -12,13 +12,13 @@ export default function () {
         paddingBottom={8}
         paddingLeft={12}
         paddingRight={12}
-        borderRadius={10}
+        borderRadius={16}
       >
         <RoundedTextBorder className='font-semibold text-black text-3xl w-[450px] text-right'>
-          O viziune modernă asupra schițelor lui Caragiale
+          Lorem ipsum dolor sit amet, consectetur adipiscing
         </RoundedTextBorder>
         <IncludeBorder>
-          <label>Darius Covaciu</label>
+          <label>John Doe</label>
         </IncludeBorder>
       </RoundedBorder>
     </main>
