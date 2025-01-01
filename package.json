@@ -1,0 +1,54 @@
+{
+  "name": "react-rounded-border",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "ui",
+    "round-border",
+    "rounded-border",
+    "border-radius",
+    "merge-components",
+    "ui-components",
+    "react-design",
+    "styled-components",
+    "border-styling",
+    "react-border",
+    "custom-borders",
+    "component-style",
+    "frontend-tools",
+    "responsive-borders",
+    "dynamic-borders"
+  ],
+  "author": "Karo8870",
+  "license": "MIT",
+  "description": "React rounded border is a simple package that can add a round border to elements in React",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Karo8870/react-rounded-border"
+  },
+  "scripts": {
+    "build:js": "swc ./src -d dist --config-file=swc.config.json --strip-leading-paths",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:js && npm run build:types"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.5.2",
+    "@swc/core": "^1.10.4",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@turf/helpers": "^7.2.0",
+    "@turf/union": "^7.2.0"
+  }
+}
